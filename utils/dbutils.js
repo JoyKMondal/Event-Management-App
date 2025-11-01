@@ -2,14 +2,14 @@ import { MongoClient } from "mongodb";
 
 export async function connectDatabase() {
     const client = await MongoClient.connect(
-      "mongodb+srv://joykumar:Googletest@cluster1.sxidkwv.mongodb.net/?retryWrites=true&w=majority"
+      "mongodb+srv://joykumar:Googletest@cluster0.oveofxm.mongodb.net/?retryWrites=true&w=majority"
     );
   
     return client;
 }
 
 export async function connectToDatabaseTwo() {
-  const connectionStrings = `mongodb+srv://${process.env.mongodb_username}:${process.env.mongodb_password}@${process.env.mongodb_clustername}.sxidkwv.mongodb.net/${process.env.mongodb_database}?retryWrites=true&w=majority`
+  const connectionStrings = `mongodb+srv://${process.env.mongodb_username}:${process.env.mongodb_password}@cluster0.oveofxm.mongodb.net/${process.env.mongodb_database}?retryWrites=true&w=majority`
 
   const client = await MongoClient.connect(connectionStrings);
 

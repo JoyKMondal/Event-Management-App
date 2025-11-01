@@ -19,7 +19,7 @@ export default function EventsGrid({ events, isFetching }) {
 
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = events.slice(indexOfFirstPost, indexOfLastPost);
+  const currentPosts = events?.slice(indexOfFirstPost, indexOfLastPost);
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -47,14 +47,14 @@ export default function EventsGrid({ events, isFetching }) {
       <FormElement onSearch={handleSearch} />
       {!isFetching ? (
         <ul className={classes.tickets}>
-          {currentPosts.map((event) => {
+          {currentPosts?.map((event) => {
             return <EventItem key={event.id} {...event} />;
           })}
         </ul>
       ) : (
         <LoadingPage />
       )}
-      {events.length > 4 && (
+      {events?.length > 4 && (
         <Pagination
           postsPerPage={postsPerPage}
           totalPosts={events.length}
@@ -63,7 +63,7 @@ export default function EventsGrid({ events, isFetching }) {
           nextPage={nextPage}
         />
       )}
-      {events && events.length === 0 && !isFetching && (
+      {events && events?.length === 0 && !isFetching && (
         <EmptyItem
           boldAlert="No events added yet."
           smallAlert="No warries - plenty of exciting events to explore!"
